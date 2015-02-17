@@ -1,0 +1,9 @@
+<header data-ng-controller="PublicHeaderController" data-ng-show="!global.authenticated && !dontshowHeader" data-ng-init="InitFunction()">
+  <div class="logo">
+    <a ng-href="{{headertitlelink}}">{{headertitle}}</a>
+  </div>
+  <div class="chatwithme-cont">
+    <a href="#" data-ng-click="openchatbox()">Chat with Me</a>
+  </div>
+  <div class="clearfix-front"></div>
+</header>  

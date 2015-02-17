@@ -1,38 +1,188 @@
-<div class="page-header" data-ng-controller="HeaderController">
-  <div class="logo pull-left">
-    <a class="navbar-brand" ui-sref="home" mean-token="'site-title'">MEAN</a>
-  </div>
+ <div data-ng-controller="HeaderController" data-ng-show="global.authenticated" data-ng-init="InitFunction()">
+     <header class="navbar" id="header-navbar" >
+      <div class="container">
+        <a href="#/dasboard" id="logo" class="navbar-brand">
+          <img src="/theme/assets/img/logo.png" alt="" class="normal-logo logo-white"/>
+          <img src="/theme/assets/img/logo-black.png" alt="" class="normal-logo logo-black"/>
+          <img src="/theme/assets/img/logo-small.png" alt="" class="small-logo hidden-xs hidden-sm hidden"/>
+        </a>
+        
+        <div class="clearfix">
+          <button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="fa fa-bars"></span>
+          </button>
+        
+          <div class="nav-no-collapse navbar-left pull-left hidden-sm hidden-xs" data-ng-show="global.authenticated">
+            <ul class="nav navbar-nav pull-left">
 
-  <div class="left pull-left">
-    <ul class="navbar-nav nav">
-      <li data-ng-repeat="item in menus.main" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-        <a mean-token="item.link" ui-sref='{{item.link}}'>{{item.title}}</a>
-      </li>
-    </ul>
-  </div>
+              <li class="dropdown hidden-xs">
+                <a class="btn dropdown-toggle">
+                  <i class="fa fa-bell"></i>
+                  <span class="count">8</span>
+                </a>
+                <ul class="dropdown-menu notifications-list">
+                  <li class="pointer">
+                    <div class="pointer-inner">
+                      <div class="arrow"></div>
+                    </div>
+                  </li>
+                  <li class="item-header">You have 6 new notifications</li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-comment"></i>
+                      <span class="content">New comment on ‘Awesome P...</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-plus"></i>
+                      <span class="content">New user registration</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-envelope"></i>
+                      <span class="content">New Message from George</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-shopping-cart"></i>
+                      <span class="content">New purchase</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-eye"></i>
+                      <span class="content">New order</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item-footer">
+                    <a href="#">
+                      View all notifications
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown hidden-xs">
+                <a class="btn dropdown-toggle">
+                  <i class="fa fa-envelope-o"></i>
+                  <span class="count">16</span>
+                </a>
+                <ul class="dropdown-menu notifications-list messages-list">
+                  <li class="pointer">
+                    <div class="pointer-inner">
+                      <div class="arrow"></div>
+                    </div>
+                  </li>
+                  <li class="item first-item">
+                    <a href="#">
+                      <img src="" alt=""/>
+                      <span class="content">
+                        <span class="content-headline">
+                          George Clooney
+                        </span>
+                        <span class="content-text">
+                          Look, just because I don't be givin' no man a foot massage don't make it 
+                          right for Marsellus to throw...
+                        </span>
+                      </span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <img src="" alt=""/>
+                      <span class="content">
+                        <span class="content-headline">
+                          Emma Watson
+                        </span>
+                        <span class="content-text">
+                          Look, just because I don't be givin' no man a foot massage don't make it 
+                          right for Marsellus to throw...
+                        </span>
+                      </span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <img src="" alt=""/>
+                      <span class="content">
+                        <span class="content-headline">
+                          Robert Downey Jr.
+                        </span>
+                        <span class="content-text">
+                          Look, just because I don't be givin' no man a foot massage don't make it 
+                          right for Marsellus to throw...
+                        </span>
+                      </span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item-footer">
+                    <a href="#">
+                      View all messages
+                    </a>
+                  </li>
+                </ul>
+              </li>
 
-  <div class="account">
-    <div class="text-edit">
-      <div class="pull-right" data-ng-show="global.authenticated" mean-token-editable></div>
-      <div class="pull-right" data-ng-show="global.authenticated" mean-translate></div>
-    </div>
-    <ul class="navbar-nav nav" data-ng-hide="global.authenticated">
-      <li><a ui-sref='auth.register'>Join</a>
+            </ul>
+          </div>
+          <div class="nav-no-collapse pull-right" id="header-nav" data-ng-hide="global.authenticated">
+
+          <ul class="navbar-nav nav">
+     <li><a ui-sref='auth.register'>Join</a>
       </li>
       <li class="divider-vertical"></li>
       <li><a ui-sref='auth.login'>Log In</a>
       </li>
     </ul>
-    <ul class="navbar-nav nav" data-ng-show="global.authenticated">
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          {{global.user.name}} <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a target="_self" href="/api/logout">Log Out</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
   </div>
+          <div class="nav-no-collapse pull-right" id="header-nav" data-ng-show="global.authenticated">
+            <ul class="nav navbar-nav pull-right">
+              <li data-ng-model="search" data-ng-click="activesearch()" ng-class="{true:'mobile-search active',false:'mobile-search'}[search]">
+                <a class="btn">
+                  <i class="fa fa-search"></i>
+                </a>
+                
+                <div class="drowdown-search">
+                  <form role="search">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search...">
+                      <i class="fa fa-search nav-search-icon"></i>
+                    </div>
+                  </form>
+                </div>
+                
+              </li>
+              <li class="dropdown profile-dropdown">
+                <a class="dropdown-toggle" >
+                  <img ng-if="user.profile_pic != ''" src="/users/assets/uploads/{{user._id}}/images/50x50-{{user.profile_pic}}" alt=""/>
+                  <span class="hidden-xs">{{user.name}}</span> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a ui-sref="auth.user-profile"><i class="fa fa-user"></i>Profile</a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
+                  <li ng-show="superadmin" ui-sref="auth.jobtable"><a><i class="fa fa-table"></i>Jobs</a></li>
+                  <li><a target="_self" href="/api/logout"><i class="fa fa-power-off"></i>Logout</a></li>
+                </ul>
+              </li>
+              <li class="hidden-xxs">
+                <a target="_self" href="/api/logout" class="btn">
+                  <i class="fa fa-power-off"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
 </div>

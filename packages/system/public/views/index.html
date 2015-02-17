@@ -1,104 +1,239 @@
-<section class="welcome container-fluid" data-ng-controller="IndexController">
-  <div class="col-md-12 first">
-    MEAN.io makes building apps simpler and faster. With this website framework, you can <a href="https://github.com/linnovate/mean/wiki/CLI#user-management">create members</a>, </br>
-    articles, or <a href="http://mean.io/#!/packages">add more features</a> with a package from the community.
-    </div>
-    <div class="col-md-12 row">
-    <div class="info col-md-6">
-      <div class="docs">
-        <div class="welcome-sprite"></div>
-        <h3>Browse the  Documentation</h3>
-        <p class="docs-desc">
-        Before you jump in it's important to read the documentation and learn about the different aspects of extending and developing MEAN.<br/>
-        Mean is based on MongoDB, Express.js, Angular.js and Node.js and even basic proficiency in these technologies will help you dive in to mean development - luckily there are plenty of <a href="http://learn.mean.io/">tutorials around</a>.
-        </p>
-        <div class="docs-link first">
-          <ul>
-            <li><a href="http://learn.mean.io/#mean-technologies">Overview</a></li>
-            <li><a href="http://learn.mean.io/#mean-packages">Packages</a></li>
-          </ul>
+ <section data-ng-controller="MainPageController" data-ng-init="initFunction()">
+ <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+ <link href="http://localhost:3000/theme/assets/css/directionhover-style.css" rel="stylesheet" type="text/css">
+<link href="http://localhost:3000/theme/assets/css/styles.css" rel="stylesheet" type="text/css">
+<script src="theme/assets/js/modernizr.custom.97074.js"></script>
+
+
+  <div class="wrapper"> -->
+    <div class="landing-section">
+      <div class="container-front">
+        <div class="left-section">
+          <img src="theme/assets/img/my-img.png" alt="" title="">
         </div>
-        <div class="docs-link">
-          <ul>
-            <li><a href="http://learn.mean.io/#mean-cli">CLI</a></li>
-            <li><a href="http://learn.mean.io/#mean-mean-network">Network</a></li>
-          </ul>
-        </div>
-        <div class="docs-link">
-          <ul>
-            <li><a href=http://learn.mean.io/#mean-packages-overriding-the-default-layouts"">Overriding</a></li>
-            <li><a href="http://learn.mean.io/#mean-packages-contributing-your-package">Contribution</a></li>
-          </ul>
-        </div>
-      <span class="morelink"><a href="http://mean.io/#!/docs">All Documentation</a></span>
-      </div>
-      <div class="packages">
-        <div class="welcome-sprite"></div>
-        <h3>Browse our packages</h3>
-        <div class="package">
-          <h4><a href="http://mean.io/#!/packages/5381820ea331eb26d1e97d3a">Token</a></h4>
-          <p>"Inplace edit" any text on the site which is wrapped by the mean-token directive.</p>
-        </div>
-        <div class="package">
-          <h4><a href="http://mean.io/#!/packages/5406ea218481325770de48d2">Comments</a></h4>
-          <p>Add comments to your objects including realtime socket.io based notifications.</p>
-        </div>
-        <div class="package">
-        <h4><a href="http://mean.io/#!/packages/5403969ab6f54b9162921322">Gmap</a></h4>
-          <p>Add geo information to your objects using a google map with location autocomplete.</p>
-        </div>
-        <div class="package">
-          <h4><a href="http://mean.io/#!/packages/538180d8a331eb26d1e97d39">Mean-admin</a></h4>
-          <p>Admnister your mean application including user, theme, variable and general settings</p>
-        </div>
-        <span class="morelink"><a href="http://mean.io/#!/packages">All Packages</a></span>
-      </div>
-      <div class="community">
-        <div class="welcome-sprite"></div>
-        <h3>Join our community</h3>
-          <i class="socialsprite sprite-facebook"></i>
-          <div class="package">
-            <h4><a href="https://www.facebook.com/groups/mean.io/">Facebook group</a></h4>
-            <p>Informal support, news and just hanging out</p>
+        <div class="right-section">
+          <h1>Hey, I’m Marco</h1>
+          <h2>Front End Web Developer</h2>
+          <p>8 years experience in HTML, CSS3, jQuery, Bootstrap, LESS and Angular.</p>
+          <div class="mean-io-cont">
+            <a scroll-on-click nothref="#da-thumbs" class="work-btn">See My Work</a>
+            <!--<div class="mean-io-logo"><img src="theme/assets/img/mean-io-logo.png" alt="" title=""></div>-->
           </div>
-            <i class="socialsprite sprite-irc"></i>
-          <div class="package">
-            <h4><a href="https://gitter.im/linnovate/mean">Gitter</a></h4>
-            <p>Support and Technical discussions</a></p>
+        </div>
+        <div class="clearfix-front"></div>
+        <div class="skills-logo">
+          <ul>
+            <li><img src="theme/assets/img/html5-logo.png" alt=""></li>
+            <li><img src="theme/assets/img/bootstrap-logo.png" alt=""></li>
+            <li><img src="theme/assets/img/css3-logo.png" alt=""></li>
+            <li><img src="theme/assets/img/jquery-logo.png" alt=""></li>
+            <li><img src="theme/assets/img/angularjs-logo.png" alt=""></li>
+            <li><img src="theme/assets/img/less-logo.png" alt=""></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="work-outer" id="da-thumbs">
+          <div class="container-front">
+              <div class="row">
+                    <h3>Worked at</h3>
+                    <div class="clearfix-front"></div>
+                </div>
+                <div class="work-detail">
+                  <div class="workdetail-inner">
+                      <div class="work-thumbnail">
+                          <div class="workthumbnail-hover">
+                              <a ui-sref="butler"><img src="theme/assets/img/work-thumbnail1hover.png" alt="" title="" /></a>
+                            </div>
+                          <a ui-sref="butler"><img src="theme/assets/img/work-thumbnail1.png" alt="" title="" /></a>
+                        </div>
+                        <div class="workdetail-innerbtm">
+                          <h4>Laugh Factory</h4>
+                            <h5>Comedy Club</h5>
+                            <p>Front End Web Developer - 2012 - 2015</p>
+                        </div>
+                    </div>
+                    <div class="workdetail-inner">
+                      <div class="work-thumbnail">
+                          <div class="workthumbnail-hover">
+                              <a ui-sref="theplayers"><img src="theme/assets/img/work-thumbnail4hover.png" alt="" title=""></a>
+                            </div>
+                          <a ui-sref="theplayers"><img src="theme/assets/img/work-thumbnail4.png" alt="" title=""></a>
+                        </div>
+                        <div class="workdetail-innerbtm">
+                          <h4>Sanebox</h4>
+                            <h5>Email Management</h5>
+                            <p>Web Designer - Freelance Work</p>
+                        </div>
+                    </div>
+                    <div class="workdetail-inner">
+                      <div class="work-thumbnail">
+                          <div class="workthumbnail-hover">
+                              <a ui-sref="paperstreet"><img src="theme/assets/img/work-thumbnail3hover.png" alt="" title="" /></a>
+                            </div>
+                          <a ui-sref="paperstreet"><img src="theme/assets/img/work-thumbnail3.png" alt="" title="" /></a>
+                        </div>
+                        <div class="workdetail-innerbtm">
+                          <h4>Paper Street</h4>
+                            <h5>Web Design Agency</h5>
+                            <p>Web Designer - 2006 - 2010</p>
+                        </div>
+                    </div>
+                    <div class="clearfix-front"></div>
+                </div>
+                <div class="row">
+                    <h3>Worked on</h3>
+                    <div class="clearfix-front"></div>
+                </div>
+        <div class="work-detail">
+                  <div class="workdetail-inner">
+                      <div class="work-thumbnail">
+                          <div class="workthumbnail-hover">
+                              <a href="#"><img src="theme/assets/img/work-thumbnail10hover.png" alt="" title="" /></a>
+                            </div>
+                          <a href="#"><img src="theme/assets/img/work-thumbnail10.png" alt="" title="" /></a>
+                        </div>
+                        <div class="workdetail-innerbtm">
+                          <h4>Jokerz</h4>
+                            <h5>Comedy Club</h5>
+                            <p>Web Designer - Freelance Work</p>
+                        </div>
+                    </div>
+                    <div class="workdetail-inner">
+                      <div class="work-thumbnail">
+                          <div class="workthumbnail-hover">
+                              <a href="#"><img src="theme/assets/img/work-thumbnail5hover.png" alt="" title="" /></a>
+                            </div>
+                          <a href="#"><img src="theme/assets/img/work-thumbnail5.png" alt="" title="" /></a>
+                        </div>
+                        <div class="workdetail-innerbtm">
+                          <h4>Austin Bazaar</h4>
+                            <h5>eCommerce for Music Instruments</h5>
+                            <p>Web Developer - Freelance Work</p>
+                        </div>
+                    </div>
+                    <div class="workdetail-inner">
+                      <div class="work-thumbnail">
+                          <div class="workthumbnail-hover">
+                              <a href="#"><img src="theme/assets/img/work-thumbnail6hover.png" alt="" title="" /></a>
+                            </div>
+                          <a href="#"><img src="theme/assets/img/work-thumbnail6.png" alt="" title="" /></a>
+                        </div>
+                        <div class="workdetail-innerbtm">
+                          <h4>Shoot Dot Edit</h4>
+                            <h5>Wedding Album Creators</h5>
+                            <p>Web Designer - Freelance Work</p>
+                        </div>
+                    </div>
+                    <div class="clearfix-front"></div>
+                </div>
+        <div class="work-detail">
+                  <div class="workdetail-inner">
+                      <div class="work-thumbnail">
+                          <div class="workthumbnail-hover">
+                              <a href="#"><img src="theme/assets/img/work-thumbnail7hover.png" alt="" title="" /></a>
+                            </div>
+                          <a href="#"><img src="theme/assets/img/work-thumbnail7.png" alt="" title="" /></a>
+                        </div>
+                        <div class="workdetail-innerbtm">
+                          <h4>Factor 360</h4>
+                            <h5>Web Marketing Agency</h5>
+                            <p>Web Designer - Freelance Work</p>
+                        </div>
+                    </div>
+                    <div class="workdetail-inner">
+                      <div class="work-thumbnail">
+                          <div class="workthumbnail-hover">
+                              <a href="#"><img src="theme/assets/img/work-thumbnail8hover.png" alt="" title="" /></a>
+                            </div>
+                          <a href="#"><img src="theme/assets/img/work-thumbnail8.png" alt="" title="" /></a>
+                        </div>
+                        <div class="workdetail-innerbtm">
+                          <h4>Explore Learning</h4>
+                            <h5>Online Learning Gizmos</h5>
+                            <p>Web Developer - Freelance Work</p>
+                        </div>
+                    </div>
+                    <div class="workdetail-inner">
+                      <div class="work-thumbnail">
+                          <div class="workthumbnail-hover">
+                              <a href="#"><img src="theme/assets/img/work-thumbnail9hover.png" alt="" title="" /></a>
+                            </div>
+                          <a href="#"><img src="theme/assets/img/work-thumbnail9.png" alt="" title="" /></a>
+                        </div>
+                        <div class="workdetail-innerbtm">
+                          <h4>Medigram</h4>
+                            <h5>Secure Messaging App</h5>
+                            <p>Web Designer - Freelance Work</p>
+                        </div>
+                    </div>
+                    <div class="clearfix-front"></div>
+                </div>
+            </div>    
+    </div>
+    <!-- <section class="chat-box">
+      <div class="top-title">
+        <div class="title-text">Jordan</div>
+        <div class="cancel-btn"><img src="theme/assets/img/cancel-btn.png" alt=""></div>
+        <div class="minize-btn" data-ng-click="minimize()"><img src="theme/assets/img/minimize-btn.png" alt=""></div>
+      </div>
+      <div class="mid-cont" data-ng-hide="!minimized">
+        <div class="chat-center">
+          <div class="time-line">A few seconds ago</div>
+          <div class="chat-area">
+            <div id="testDiv2">
+              <div class="chat-row">
+                <div class="chat-image"><img src="theme/assets/img/profile-img-sm.png" alt=""></div>
+                <div class="chat-right-cont">
+                  <div class="arrow-bg">
+                    <div class="chat-inner">Hi Jordan here, How are you?</div>
+                  </div>
+                </div>
+              </div>
+              <div class="chat-row">
+                <div class="chat-image"><img src="theme/assets/img/profile-img-sm.png" alt=""></div>
+                <div class="chat-right-cont">
+                  <div class="arrow-bg">
+                    <div class="chat-inner">Hi Jordan here, How are you?</div>
+                  </div>
+                </div>
+              </div>
+              <div class="chat-row2">
+                <div class="chat-left-cont">
+                  <div class="arrow-bg">
+                    <div class="chat-inner">Hey</div>
+                  </div>
+                </div>
+              </div>
+              <div class="chat-row2">
+                <div class="chat-left-cont">
+                  <div class="arrow-bg">
+                    <div class="chat-inner">
+                      I’m doing good thanks, How are you today?
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="chat-row">
+                <div class="chat-image"><img src="theme/assets/img/profile-img-sm.png" alt=""></div>
+                <div class="chat-right-cont">
+                  <div class="arrow-bg">
+                    <div class="chat-inner">...</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        <i class="socialsprite sprite-github"></i>
-        <div class="package">
-          <h4><a href="http://github.com/linnovate/mean">Github</a></h4>
-          <p>Issues, Support, Code discussions and PRs</p>
         </div>
-        <i class="socialsprite sprite-stackoverflow"></i>
-        <div class="package">
-          <h4><a href="http://hangout.mean.io">Hangout</a></h4>
-          <p>Video support, shared coding and to meet the people behind mean.io</p>
+        <div class="chat-text">
+          <textarea name="" cols="" rows="" placeholder="Type your message here"></textarea>
         </div>
       </div>
-    </div>
-    <div class="featured col-md-6">
-      <div class="featured-sites">
-        <h2>Get Inspired</h2>
-        <div class="featuredpic">
-          <img ng-src="{{sites.cactus.image}}"/>
-        </div>
-        <h4>{{sites.cactus.name}} <span>by
-          <a href="{{sites.cactus.link}}">{{sites.cactus.author}}</a></span></h4>
-          <p>{{sites.cactus.text}}</p>
-        <span class="morelink"><a href="http://builtwith.mean.io">Built with MEAN</a></span>
-      </div>
-      <div class="featured-packages">
-        <h2>Featured Package</h2>
-        <div class="featuredpic">
-          <img ng-src="{{packages.gmap.image}}"/>
-        </div>
-        <h4>{{packages.gmap.name}} <span>by
-          <a href="{{sites.makeapoint.link}}">{{packages.gmap.author}}</a></span></h4>
-          <p>{{packages.gmap.text}}</p>
-        <span class="morelink"><a href="http://builtwith.mean.io">All Packages</a></span>
-      </div>
-    </div>
+    </section> -->
   </div>
-</section>
+  <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
+  <script type="text/javascript" src="theme/assets/js/jquery.hoverdir.js"></script>
+  <script type="text/javascript" src="theme/assets/js/prettify.js"></script>
+  <script type="text/javascript" src="theme/assets/js/jquery.slimscroll.min.js"></script>
+  <script type="text/javascript" src="theme/assets/js/myscript.js"></script> -->
+ </section>

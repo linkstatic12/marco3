@@ -1,0 +1,98 @@
+/* Demo CSS - You do not need this css in your own slider */
+
+/*body{
+	font-family: "Open Sans", helvetica, arial;
+}*/
+ul.bjqs{position:relative; list-style:none;padding:0;margin:0;overflow:inherit; height:auto !important; /*display:none;*/}
+li.bjqs-slide{position:absolute; display:none; height:auto !important;}
+li.bjqs-slide img { height:auto !important; }
+ul.bjqs-controls{list-style:none;margin:0;padding:0;z-index:9999;}
+ul.bjqs-controls.v-centered li a{position:absolute; width:126px; height:185px; padding:33px;}
+ul.bjqs-controls.v-centered li.bjqs-next a{right:0; background:url(../img/slider-rightarrow.png) center center no-repeat; height:189px; width:123px; }
+ul.bjqs-controls.v-centered li.bjqs-prev a{left:0; background:url(../img/slider-leftarrow.png) center center no-repeat; height:189px; width:123px; }
+ul.bjqs-controls.v-centered li.bjqs-prev a, ul.bjqs-controls.v-centered li.bjqs-next a { top:15% !important; }
+ol.bjqs-markers{list-style: none; padding: 0; margin: 0; width:100%;}
+ol.bjqs-markers.h-centered{text-align: center; display:none; visibility:hidden;}
+ol.bjqs-markers li{display:inline;}
+ol.bjqs-markers li a{display:inline-block;}
+p.bjqs-caption{display:block;width:96%;margin:0;padding:2%;position:absolute;bottom:0;}
+
+pre{
+	font-family: "Source Code Pro", monospace;
+	display: block;
+	padding: 9.5px;
+	margin: 0 0 10px;
+	font-size: 13px;
+	line-height: 20px;
+	word-break: break-all;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: pre-wrap;
+	background-color: whiteSmoke;
+	border: 1px solid #CCC;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+h2{
+	font-size: 48px;
+}
+
+pre + h2{
+	margin-top: 80px;
+}
+
+#slider-container{
+	width:100%;
+	margin:0 auto;
+}
+#banner-fade {
+	width:100% !important;
+	max-width:100% !important;
+
+}
+.bjqs-wrapper { margin:0 auto; }
+.bjqs {
+	width:960px !important;
+	margin:0 auto !important;
+}
+#banner-fade,
+#banner-slide{
+}
+
+ul.bjqs-controls.v-centered li a{
+	display:block;
+	padding:10px;
+	background:#fff;
+	color:#000;
+	text-decoration: none;
+}
+
+ul.bjqs-controls.v-centered li.bjqs-prev a:hover{
+	background-color:#efefef;
+	border-top-right-radius:10px;
+	border-bottom-right-radius:10px;
+}
+ul.bjqs-controls.v-centered li.bjqs-next a:hover {
+	background-color:#efefef;
+	border-top-left-radius:10px;
+	border-bottom-left-radius:10px;
+}
+ol.bjqs-markers li a{
+	padding:5px 10px;
+	background:#000;
+	color:#fff;
+	margin:5px;
+	text-decoration: none;
+}
+
+ol.bjqs-markers li.active-marker a,
+ol.bjqs-markers li a:hover{
+	background: #999;
+}
+
+p.bjqs-caption{
+	background: rgba(255,255,255,0.5);
+}
+

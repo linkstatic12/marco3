@@ -19,15 +19,18 @@
   <meta property="og:site_name" content="MEAN - A Modern Stack">
   <meta property="fb:admins" content="APP_ADMIN">
 
-  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
-
-  {% for file in aggregatedassets.header.css %}
+  <!-- <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css"> -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' rel='stylesheet' type='text/css'>
+  <link href="/theme/assets/css/directionhover-style.css" rel="stylesheet" type="text/css">
+  <link href="/theme/assets/css/styles.css" rel="stylesheet" type="text/css">
+  <script src="/theme/assets/js/modernizr.custom.97074.js"></script>
+  <!-- {% for file in aggregatedassets.header.css %}
     <link rel="stylesheet" href="{{file}}">
   {% endfor %}
 
   {% for file in aggregatedassets.footer.css %}
     <link rel="stylesheet" href="{{file}}">
-  {% endfor %}
+  {% endfor %} -->
 
   {% for file in aggregatedassets.header.js %}
     <script type="text/javascript" src="{{file}}"></script>

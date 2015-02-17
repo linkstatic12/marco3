@@ -1,0 +1,71 @@
+     <section class="chat-box" data-ng-controller="ChatBoxController" data-ng-show="!global.authenticated && !dontshowchat" data-ng-init="timout()">
+      <div class="top-title" ng-style="{background: minimizedmsgrec ? '#ff6a4f' : '#2980b9' }">
+        <div class="title-text">{{marco}} <img data-ng-show="minimizedtyping" src="theme/assets/img/typing.gif" alt=""></div>
+        <!-- <div class="cancel-btn"><img src="theme/assets/img/cancel-btn.png" alt=""></div> -->
+        <div class="minize-btn"  data-ng-click="minimize()"><img src="theme/assets/img/minimize-btn.png" alt=""></div>
+      </div>
+
+      <div class="mid-cont" data-ng-hide="!minimized">
+        <div class="chat-center">
+          <div class="time-line" ng-hide="lockScrollbar">{{statusquo}}</div> 
+          <div class="time-line" ng-show="lockScrollbar">{{lastadminmsgtime}}</div>
+          <div class="chat-area">
+            <div id="testDiv2">
+              <div data-ng-repeat="message in activeuser.messages" ng:class="{true:'chat-row', false:'chat-row2'}['admin'==message.author]">
+               
+                 <div class="chat-image" ng-hide="'guest'==message.author "><img src="theme/assets/img/profile-img-sm.png" alt=""> 
+                </div>
+                <div ng:class="{true:'chat-right-cont', false:'chat-left-cont'}['admin'==message.author]">
+                  <div class="arrow-bg">
+                    <div class="chat-inner" ng-hide="message.text == 'TOROpindi510PST'">{{message.text}}</div> <div class="chat-inner" ng-show="message.text == 'TOROpindi510PST'"><img src="theme/assets/img/packman.gif" alt=""></div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="chat-row">
+                <div class="chat-image"><img src="theme/assets/img/profile-img-sm.png" alt=""></div>
+                <div class="chat-right-cont">
+                  <div class="arrow-bg">
+                    <div class="chat-inner">Hi Jordan here, How are you?</div>
+                  </div>
+                </div>
+              </div>
+              <div class="chat-row2">
+                <div class="chat-left-cont">
+                  <div class="arrow-bg">
+                    <div class="chat-inner">Hey</div>
+                  </div>
+                </div>
+              </div>
+              <div class="chat-row2">
+                <div class="chat-left-cont">
+                  <div class="arrow-bg">
+                    <div class="chat-inner">
+                      I’m doing good thanks, How are you today?
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="chat-row">
+                <div class="chat-image"><img src="theme/assets/img/profile-img-sm.png" alt=""></div>
+                <div class="chat-right-cont">
+                  <div class="arrow-bg">
+                    <div class="chat-inner">...</div>
+                  </div>
+                </div>
+              </div -->
+            </div>
+          </div>
+        </div>
+        <div class="chat-text">
+          <textarea name="" cols="" rows="" placeholder="Type your message here" data-ng-model="activeuser.text" ng-change="inputChanged(activeuser)" ng-keydown="enterpressed($event)"></textarea>
+        </div>
+      </div>
+      <script type="text/javascript">
+          $(document).ready(function(e) {
+            $('#testDiv2').slimScroll({
+                wheelStep: 100,
+                height:'225px'
+            });
+          });
+      </script>
+</section>  

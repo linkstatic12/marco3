@@ -1,0 +1,80 @@
+<section data-ng-controller="LoginController" data-ng-cloak>
+<link href="http://localhost:3000/system/assets/css/common.css" rel="stylesheet" type="text/css">
+<div id="login-full-wrapper">
+<div class="alert alert-danger animated fadeIn" style="position:absolute;width:100%;text-align:center;" ng-show="loginerror" >{{loginerror}}</div>
+    <div class="col-xs-12">
+                <div id="login-box">
+                    <div id="login-box-holder">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <header id="login-header">
+                                    <div id="login-logo">
+                                        <img src="/theme/assets/img/logo.png" alt=""/>
+                                    </div>
+                                </header>
+                                <div id="login-box-inner">
+                                    <form role="form" ng-submit="login()">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input class="form-control" type="text" placeholder="Email address" ng-model="user.email">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                            <input type="password" class="form-control" type="{{input.type}}" placeholder="{{input.placeholder}}" ng-model="user.password">
+                                        </div>
+                                        <div id="remember-me-wrapper">
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <div class="checkbox-nice">
+                                                        <input type="checkbox" id="remember-me"/>
+                                                        <label for="remember-me">
+                                                            Remember me
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <a ui-sref="forgot-password" id="login-forget-link" class="col-xs-6">
+                                                    Forgot password?
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <button type="submit" class="btn btn-success col-xs-12">Login</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <p class="social-text">Or login with</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-6">
+                                                <button data-ng-click="facebookauth()" class="btn btn-primary col-xs-12 btn-facebook">
+                                                    <i class="fa fa-facebook"></i> facebook
+                                                </button>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-6">
+                                                <button data-ng-click="linkedinauth()" class="btn btn-primary col-xs-12 btn-twitter">
+                                                    <i class="fa fa-linkedin"></i> Linkedin
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="login-box-footer">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                Do not have an account? 
+                                <a ui-sref="home" >Register now</a>
+                                                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+   </section>
