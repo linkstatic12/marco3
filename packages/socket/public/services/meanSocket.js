@@ -4,7 +4,7 @@
 var baseUrl = 'http://localhost:3000/';
 
 angular.module('mean.socket').factory('MeanSocket', function($rootScope) {
-	var socket = io.connect(baseUrl);
+	var socket = io.connect({transports: ['websocket','xhr-polling','jsonp-polling','htmlfile','flashsocket']});
 	return {
 		on: function(eventName, callback) {
 			socket.on(eventName, function() {
