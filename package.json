@@ -45,6 +45,7 @@
     "grunt-env": "0.4.2",
     "grunt-hook": "0.3.1",
     "grunt-nodemon": "0.3.0",
+    "ipware": "0.0.3",
     "load-grunt-tasks": "0.6.0",
     "lodash": "2.4.1",
     "mean-seo": "0.0.8",
