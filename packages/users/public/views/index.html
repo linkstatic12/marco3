@@ -1,38 +1,149 @@
-<div class="form main-form" ng-controller="AuthCtrl" ng-class="{'register-form' : global.registerForm}">
-    <div class="login-form__left" ui-view></div>
-    <div class="login-form__center">
-        <p>or</p>
+
+<!-- 
+<section id="user-profile" data-ng-controller="PusherChatController2" data-ng-show="SalesRep" data-ng-init="initFunction()"  ng-cloak>
+<div id="content-wrapper" style="margin-left: 0px;">
+<div class="col-lg-12">
+   
+       <div class="col-lg-3 col-md-4 col-sm-4" >
+    <div class="main-box clearfix">
+      <table class="table table-condensed table-hover">
+                               <thead>
+                                  <tr>
+                                    <th><span>Online Users</span></th>
+                                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr data-ng-repeat="onlineuser in onlineUsers | orderBy:'-updated'" style="cursor:pointer" ng:class="{true:'user-chat-active', false:''}[onlineuser==activeuser]">
+                                    <td data-ng-click="activeuserfn(onlineuser)">
+                                     {{onlineuser.name}}   ({{onlineuser.unreadmessages}})  </br> {{onlineuser.jobId.cityname}} - {{onlineuser.jobId.keyword}}
+                                     <div ng-if="onlineuser.typing" style="font-style:italic;">typing...</div>
+                                    </td>
+
+                                  </tr>
+                                </tbody>
+                              </table>
+
     </div>
-    <div class="row login-form__right " data-ng-controller="AuthCtrl">
-        <div class="social_wrap" ng-class="{bigger:socialButtonsCounter > 4 && !global.registerForm}">
-            <ul class="social">
-                <li ng-if="socialButtons.hasOwnProperty('linkedin')" class="social_icon social_icon_in">
-                    <a target="_self" href="/api/auth/linkedin" class="button">
-                        <span>Log In With LinkedIn</span>
-                    </a>
-                </li>
-                <li ng-if="socialButtons.hasOwnProperty('facebook')" class="social_icon social_icon_fb">
-                    <a target="_self" href="/api/auth/facebook" class="button">
-                        <span>Log In With Facebook</span>
-                    </a>
-                </li>
-                <li ng-if="socialButtons.hasOwnProperty('github')" class="social_icon social_icon_gh">
-                    <a target="_self" href="/api/auth/github" class="button">
-                        <span>Log In With GitHub</span>
-                    </a>
-                </li>
-                <li ng-if="socialButtons.hasOwnProperty('twitter')" class="social_icon social_icon_tw">
-                    <a target="_self" href="/api/auth/twitter" class="button">
-                        <span>Log In With Twitter</span>
-                    </a>
-                </li>
-                <li ng-if="socialButtons.hasOwnProperty('google')" class="social_icon social_icon_google">
-                    <a target="_self" href="/api/auth/google" class="button">
-                        <span>Log In With Google</span>
-                    </a>
-                </li>
-            </ul>
+  </div>
+  <div class="col-lg-6 col-md-4 col-sm-4">
+
+            <div class="conversation-wrapper">
+              <div class="conversation-content">
+                
+                <div class="conversation-inner">
+                 
+                 <div data-ng-repeat="message in activeuser.messages"  ng:class="{true:'conversation-item item-right clearfix', false:'conversation-item item-left clearfix'}[user.name==message.author]">
+                    <div class="conversation-user">
+                      <img ng-hide="user.name==message.author "src="theme/assets/img/user.png" alt=""/>
+                    
+                    </div>
+                    <div class="conversation-body">
+                       <div class="time hidden-xs">
+                     
+                       {{message.created_on | date: 'short'}}
+                      </div>
+                      <div class="text">
+                        {{message.text}}
+                      </div>
+                    </div>
+                  </div>
+                 </div>
+                
+              </div>
+
+              <div class="conversation-new-message">
+                <form>
+                  <div class="form-group">
+                  
+                    <textarea ng-change="inputChanged(activeuser)" ng-keyup="enterpressed($event)" class="form-control" rows="2" data-ng-model="activeuser.text" placeholder="Enter your message..."></textarea>
+                    
+                  </div>
+                  
+                </form>
+              </div>
+            </div>
+            </div>
+        <div class="col-lg-3 col-md-4 col-sm-4">
+    <div class="main-box clearfix">
+     
+                                <h2
+                                 
+                                    <span>Job Description</span>
+                                    
+                                 
+                                </h2>
+                                <div class="conversation-inner" data-ng-bind-html="jobdescription">
+                                  
+                                     
+                                   
+                                </div>
+                             
+
+    </div>
+  </div>
         </div>
+      </div>     
+          </section> -->
+       
+<section data-ng-controller="UserIndexController" data-ng-init="initFunction()" data-ng-hide="SalesRep" ng-cloak>
+<link href="http://localhost:3000/system/assets/css/common.css" rel="stylesheet" type="text/css">
+    <div id="page-wrapper" class="container">
+     <div class="row" style="opacity: 1;">
+        <div id="nav-col">
+          <section id="col-left" class="col-left-nano">
+            <div id="col-left-inner" class="col-left-nano-content">
+                <div class="collapse navbar-collapse navbar-ex1-collapse" id="sidebar-nav" bs-navbar>
+                <ul class="nav nav-pills nav-stacked">
+                               <li data-ng-model="dashboard" ng-class="{true:'active',false:''}[dashboard]">
+                    <a data-ng-click="activedashboard()" data-ng-model="dashboard" ui-sref-active="active" ui-sref=".dashboard">
+                      <i class="fa fa-dashboard"></i>
+                      <span>Dashboard</span>
+                      </a>
+                  </li>
+                  
+                  <li ng-show="superAdmin" data-ng-model="jobs" ng-class="{true:'active',false:''}[jobs]">
+                    <a data-ng-click="activejobs()" ui-sref-active="active" ui-sref=".jobtable">
+                      <i class="fa fa-table"></i>
+                      <span>Jobs</span>                     
+                    </a>
+                  </li>
+                 <li data-ng-model="clients" ng-show="superAdmin" ng-class="{true:'active',false:''}[clients]" data-ng-click="activeclients()">
+                    <a ui-sref-active="active" ui-sref=".users">
+                      <i class="fa fa-user"></i>
+                      <span>Users</span>                     
+                    </a>
+                  </li>
+                               <li ng-show="superAdminOrAssistant" data-ng-model="livechat" ng-class="{true:'active',false:''}[livechat]">
+                    <a data-ng-click="activelivechat()" ui-sref-active="active" ui-sref=".guestchat">
+                      <i class="fa fa-wechat"></i>
+                      <span>Live Chat</span>                     
+                    </a>
+                  </li>
+                  </ul>
+              </div>
+            </div>
+          </section>
+          <div id="nav-col-submenu"></div>
+        </div>
+        <div id="content-wrapper">
+          <div class="row">
+            <div class="col-lg-12">
+              
+              <div class="slide-main-container">
+                <div ng-view class="slide-main-animation" ui-view>
+                  
+                </div>
+
+              </div>
+              
+            </div>
+          </div>
+          
+        
+        </div>
+      </div>
     </div>
 
-</div>
+ 
+  </section>

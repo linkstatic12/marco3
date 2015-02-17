@@ -3,14 +3,14 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+var mongoose  = require('mongoose'),
+    Schema    = mongoose.Schema,
+       _   = require('lodash');
 
-/**
- * Message Schema
- */
 
-var MessageSchema = new Schema({
+
+
+var GuestUserSchema = new Schema({
   ip:
     { 
    type: String,
@@ -31,7 +31,7 @@ var MessageSchema = new Schema({
       author:{
             type: String
             },
-      text: {
+      message: {
             type: String  
             },
       senddate: {
@@ -45,24 +45,7 @@ var MessageSchema = new Schema({
           type:String
          }
        }
-    ],
-    profile_messages
-    :
-    {
-      firstname:{
-      type:String
-       },
-      lastname:{
-      type:String
-      },
-      email:{
-      type:String
-      },
-      phone:{
-        type:String
-      }
+    ]
 
-     }
 });
-
-mongoose.model('Message', MessageSchema);
+mongoose.model('GuestUser', GuestUserSchema);

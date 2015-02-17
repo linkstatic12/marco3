@@ -9,13 +9,14 @@ var mongoose = require('mongoose'),
   config = require('meanio').loadConfig(),
   crypto = require('crypto'),
   nodemailer = require('nodemailer'),
-  templates = require('../template');
+  templates = require('../template'),
+  mysql = require('mysql');
 
 /**
  * Auth callback
  */
 exports.authCallback = function(req, res) {
-  res.redirect('/');
+  res.redirect('/login');
 };
 
 /**
@@ -33,7 +34,7 @@ exports.signin = function(req, res) {
  */
 exports.signout = function(req, res) {
   req.logout();
-  res.redirect('/');
+  res.redirect('/login');
 };
 
 /**
@@ -105,6 +106,7 @@ exports.create = function(req, res, next) {
  * Send User
  */
 exports.me = function(req, res) {
+ 
   res.json(req.user || null);
 };
 
@@ -229,4 +231,110 @@ exports.forgotpassword = function(req, res, next) {
       res.json(response);
     }
   );
+
+
+
 };
+
+
+//   exports.fetchDataFromSqlServer =function(req,res)
+//   {
+
+
+  
+// console.log('config: ',config.mySqlConn);
+// var db_config = config.mySqlConn;
+// var connection;
+
+// function handleDisconnect() {
+//   connection = mysql.createConnection(db_config); // Recreate the connection, since
+//                                                   // the old one cannot be reused.
+
+//   connection.connect(function(err) {              // The server is either down
+//     if(err) {                                     // or restarting (takes a while sometimes).
+//       console.log('error when connecting to db:', err);
+//       setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+//     }    
+//     else
+//     {connection.query('SELECT COUNT(*) FROM cl_job',function(err,rows,fields){
+//     var jj=JSON.stringify(rows[0]);
+//     var d=jj.indexOf(':')+1;
+// jj= jj.substring(d,jj.length-1);
+//   console.log(jj);
+
+
+//    connection.query('SELECT * FROM cl_job LIMIT '+req.body.skip+','+req.body.limit, function(err, rows, fields) {
+//   if (err) throw err;
+
+//   res.jsonp({rows:rows,total:jj});
+//  });
+//     });
+  
+
+//  }                                // to avoid a hot loop, and to allow our node script to
+//   });                                     // process asynchronous requests in the meantime.
+//                                           // If you're also serving http, display a 503 error.
+//   connection.on('error', function(err) {
+//     console.log('db error', err);
+//     if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+//       handleDisconnect();                         // lost due to either server restart, or a
+//     } else {                                      // connnection idle timeout (the wait_timeout
+//       throw err;                                  // server variable configures this)
+//     }
+//   });
+// }
+
+// handleDisconnect();
+
+//   };
+
+  exports.fetchCLJob = function(req,res)
+  {
+
+  var db_config = config.mySqlConn;
+var connection;
+
+function handleDisconnect() {
+connection = mysql.createConnection(db_config); // Recreate the connection, since
+                                                  // the old one cannot be reused.
+
+  connection.connect(function(err) {              // The server is either down
+    if(err) {                                     // or restarting (takes a while sometimes).
+      console.log('error when connecting to db:', err);
+      setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+    }    
+    else
+    {
+
+      connection.query('SELECT * FROM cl_job WHERE job_id='+req.body.jobId+' limit 1',function(err,rows,fields){
+       
+        var keyword=rows[0].keyword_text;       //console.log(rows[0].city_id);
+        var job_description=rows[0].job_description;
+          var stringme= job_description.replace(/&quot;/g, "'");
+          console.log(stringme);
+connection.query('SELECT * FROM cl_city WHERE city_id='+rows[0].city_id+' limit 1',function(err,rows,fields){
+  //console.log(rows[0].city_name2);
+  res.jsonp({cityname:rows[0].city_name2,keyword:keyword,job_description:stringme});
+});
+
+    });
+  
+
+ }                                // to avoid a hot loop, and to allow our node script to
+  });                                     // process asynchronous requests in the meantime.
+                                          // If you're also serving http, display a 503 error.
+  connection.on('error', function(err) {
+    console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+      handleDisconnect();                         // lost due to either server restart, or a
+    } else {                                      // connnection idle timeout (the wait_timeout
+      throw err;                                  // server variable configures this)
+    }
+  });
+}
+
+handleDisconnect();
+
+
+
+  }

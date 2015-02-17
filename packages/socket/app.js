@@ -18,7 +18,7 @@ MeanSocket.register(function(app, auth, database, http) {
 
     //We enable routing. By default the Package Object is passed to the routes
     MeanSocket.routes(io);
-
+    
     //We are adding a link to the main menu for all authenticated users
     MeanSocket.menus.add({
         title: 'Mean Socket',
@@ -26,6 +26,7 @@ MeanSocket.register(function(app, auth, database, http) {
         roles: ['authenticated'],
         menu: 'main'
     });
+    
 
     return MeanSocket;
 });

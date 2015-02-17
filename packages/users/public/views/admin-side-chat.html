@@ -1,0 +1,188 @@
+
+<section  class="row" id="user-profile" data-ng-controller="PusherChatController" data-ng-init="initFunction()">
+       <div class="col-lg-3 col-md-4 col-sm-4">
+    <div class="main-box clearfix">
+      <table class="table table-condensed table-hover">
+                                <thead>
+                                  <tr>
+                                    <th><span>Online Users</span></th>
+                                    
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr data-ng-repeat="onlineuser in onlineUsers | orderBy:'-updated'" style="cursor:pointer" data-ng-click="setActiveuser(onlineuser)">
+ 
+                                    <td>
+                                    Guest {{onlineuser.guestid}}</br> {{onlineuser.data.cityname}} - {{onlineuser.data.keyword}}
+                                    <span ng-if="onlineuser.admintyping">Typing ...</span>
+                                    </td>
+
+                                  </tr>
+                                </tbody>
+                              </table>
+
+    </div>
+  </div>
+  <div class="col-lg-9 col-md-8 col-sm-8">
+
+            <div class="conversation-wrapper">
+              <div class="conversation-content">
+                 <!-- -->
+                <div class="conversation-inner">
+                 
+                 <div data-ng-repeat="message in activeuser.messages" ng:class="{true:'conversation-item item-left clearfix', false:'conversation-item item-right clearfix'}['guest'== message.author]">
+                 {{message.author}}
+                    <div class="conversation-user">
+                      <!-- <img ng-hide="user.name==message.author "src="theme/assets/img/user.png" alt=""/> -->
+                    </div>
+                    <div class="conversation-body">
+                       <!--<div class="time hidden-xs">
+                         September 21, 2013 18:28 
+                       {{message.created_on | date: 'short'}}
+                      <div class="text">
+                      </div>-->
+                        {{message.text}}
+                      </div>
+                    </div>
+                  </div>
+                 </div>
+                
+              </div>
+
+              <div class="conversation-new-message">
+                <form>
+                  <div class="form-group">
+                    <!-- <textarea ng-focus="activeuser.focus=true;" ng-blur="submitNotTyping(user)" ng-keyup="submitTyping(activeuser)" ng-init="count=0" class="form-control" rows="2" data-ng-model="activeuser.text" placeholder="Enter your message..."></textarea> -->
+                    <textarea ng-change="inputChanged(activeuser)" ng-keyup="enterpressed($event)" class="form-control" rows="2" data-ng-model="activeuser.text" placeholder="Enter your message..."></textarea>
+                    
+                  </div>
+                  
+                  <!-- <div class="clearfix">
+                    <button data-ng-click="submittext(activeuser)" class="btn btn-success pull-right">Send message</button>
+                  </div> -->
+                </form>
+              </div>
+            </div>
+            </div>
+
+          </section>
+
+<!--  <div id="pusherChat" data-ng-controller="PusherChatController" data-ng-show="global.authenticated" data-ng-init="initFunction()">
+
+  <div id="membersContent"> 
+
+  <span id="expand">
+    <span data-ng-click="changememberlist()" data-ng-hide="memberlist">&#x25BC;</span>
+
+  <span data-ng-click="changememberlist()" data-ng-show="memberlist">&#x25B2;</span></span>
+
+  <div id="pusherchath2"><span id="count">{{count}}</span> online</div>
+
+  <div class="scroll" data-ng-hide="memberlist">
+
+  <div id="members-list">
+  <a data-ng-click="openChatBox(user)" class="on" data-ng-repeat="user in onlineUsers"><img src=""/> <span>{{user.name}}</span></a>
+</div>
+
+  </div>
+
+  </div>
+
+
+  <div id="templateChatBox">
+
+  <div class="pusherChatBox">
+
+  <span class="state">
+
+  <span class="pencil">
+
+  <img src="/theme/assets/img/pencil.gif" />
+
+  </span>
+
+  <span class="quote">
+
+  <img src="/theme/assets/img/quote.gif" />
+
+  </span>
+
+  </span>
+
+  <span class="expand"><span class="close">&#x25BC;</span><span class="open">&#x25B2;</span></span>
+
+  <span class="closeBox">x</span>
+
+  <h2><a href="#" title="go to profile"><img src="" class="imgFriend" /></a> <span class="userName"></span></h2>
+
+  <div class="slider">
+
+  <div class="logMsg">
+
+  <div class="msgTxt">
+
+  </div>
+
+  </div>
+
+  <form method="post" name="#123">
+
+  <textarea  name="msg" rows="3" ></textarea>
+
+  <input type="hidden" name="from" class="from" />
+
+  <input type="hidden" name="to"  class="to"/>
+
+  <input type="hidden" name="typing"  class="typing" value="false"/>
+
+  </form>
+
+  </div>
+
+  </div>
+
+  </div>
+
+
+<div class="chatBoxWrap" style="width: 1119px;">
+                    <div class="chatBoxslide" style="width: 220px;">
+
+                      <div class="pusherChatBox off" id="id_2" data-ng-repeat="activeuser in activechats" ng-style="{'right':activeuser.space+'px'}">
+                        <span class="state">
+                            <span class="pencil">
+                                <img src="assets/pencil.gif">
+                            </span>
+                            <span class="quote">
+                                <img src="assets/quote.gif">
+                            </span>
+                        </span>
+                        <span class="expand">
+                           <span data-ng-click="change(activeuser)" data-ng-hide="activeuser.closeexpand">▲</span>
+                      
+                          <span data-ng-click="change(activeuser)" data-ng-show="activeuser.closeexpand">▼</span>
+
+                           </span>
+                        <span class="closeBox" data-ng-click="dismissChatBox(activeuser)">x</span>
+                        <h2><span class="userName">{{activeuser.grant.name}}</span></h2>
+                        <div class="slider" data-ng-show="activeuser.closeexpand">
+                            <div class="logMsg">
+                                <div class="msgTxt" data-ng-repeat="message in activeuser.grant.messages">
+                                  <b>{{message.author}}</b><br>
+                                  {{message.text}}
+                                </div>
+                            </div>
+                            <form name="#123">
+                                <textarea data-ng-model="activeuser.text" name="msg" rows="3"></textarea>
+                                <button data-ng-click="submittext(activeuser)">Send</button>
+                                <input type="hidden" name="from" class="from" value="1">
+                                <input type="hidden" name="to" class="to" value="#2">
+                                <input type="hidden" name="typing" class="typing" value="false">
+                            </form>
+                        </div>
+                    </div></div>
+                    <span id="slideLeft" style="display: none;"> <img src="assets/quote.gif">◀</span> 
+                    <span id="slideRight" style="display: none;">▶ <img src="assets/quote.gif"></span>
+                </div>
+
+  </div> -->

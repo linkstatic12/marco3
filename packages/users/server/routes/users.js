@@ -2,22 +2,26 @@
 
 // User routes use users controller
 var users = require('../controllers/users'),
-    config = require('meanio').loadConfig();
-
+    config = require('meanio').loadConfig(),
+    guestUsers= require('../controllers/guestUsers.js'),
+    QandA =  require('../controllers/search.js');
 module.exports = function(MeanUser, app, auth, database, passport) {
 
   app.route('/api/logout')
     .get(users.signout);
   app.route('/api/users/me')
     .get(users.me);
-
+app.route('/api/guestUser/fetchmessages').post(guestUsers.fetchMessages);
   // Setting up the users api
   app.route('/api/register')
     .post(users.create);
-
+app.route('/api/guestUser/sendData')
+    .post(guestUsers.saveGuestUser);
   app.route('/api/forgot-password')
     .post(users.forgotpassword);
-
+    app.route('/api/rateup').post(QandA.rateitup);
+app.route('/api/searchqanda').post(QandA.tryme);
+app.route('/api/sendquestionanswer').post(QandA.addQandA);
   app.route('/api/reset/:token')
     .post(users.resetpassword);
 
