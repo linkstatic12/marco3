@@ -120,6 +120,24 @@
                       <span>Live Chat</span>                     
                     </a>
                   </li>
+                          <li ng-show="superAdminOrAssistant" data-ng-model="qanda" ng-class="{true:'active',false:''}[qanda]">
+                    <a data-ng-click="activeqanda()" ui-sref-active="active" ui-sref=".search">
+                      <i class="fa fa-wechat"></i>
+                      <span>Q & A</span>                     
+                    </a>
+                  </li>
+                          <li ng-show="superAdminOrAssistant" data-ng-model="addqanda" ng-class="{true:'active',false:''}[addqanda]">
+                    <a data-ng-click="activeaddqanda()" ui-sref-active="active" ui-sref=".addQA">
+                      <i class="fa fa-wechat"></i>
+                      <span>Add Q & A</span>                     
+                    </a>
+                  </li>
+                          <li ng-show="superAdminOrAssistant" data-ng-model="email" ng-class="{true:'active',false:''}[email]">
+                    <a data-ng-click="activeemail()" ui-sref-active="active" ui-sref=".email">
+                      <i class="fa fa-wechat"></i>
+                      <span>Email</span>                     
+                    </a>
+                  </li>
                   </ul>
               </div>
             </div>

@@ -61,6 +61,14 @@ angular.module('mean.users').config(['$meanStateProvider',
         resolve: {
           loggedin: checkLoggedOut
         }
+      }).
+      state('auth.email',{
+
+        url: '/email',
+        templateUrl: 'users/views/email.html',
+        resolve: {
+          loggedin: checkLoggedOut
+        }
       })
       .state('forgot-password', {
         url: '/forgot-password',

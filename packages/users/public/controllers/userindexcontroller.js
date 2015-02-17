@@ -12,6 +12,9 @@ angular.module('mean.users')
       $scope.superAdminOrAssistant=false;
       $scope.users=false;
     	$scope.jobs=false;
+      $scope.qanda=false;
+      $scope.addqanda=false;
+      $scope.email=false;
       $scope.displaynav="none";
       $scope.clients=false;
     	$scope.initFunction = function()
@@ -66,6 +69,9 @@ angular.module('mean.users')
       {
          $scope.clients=false;
          $scope.jobs=false;
+          $scope.qanda=false;
+      $scope.addqanda=false;
+      $scope.email=false;
          $scope.dashboard=false;
          $scope.users=!$scope.users;
 
@@ -74,6 +80,9 @@ angular.module('mean.users')
       {
         $scope.clients=!$scope.clients;
        $scope.jobs=false;
+        $scope.qanda=false;
+      $scope.addqanda=false;
+      $scope.email=false;
        $scope.users=false;
         $scope.dashboard=false;
       }
@@ -82,6 +91,9 @@ angular.module('mean.users')
     		$scope.jobs=!$scope.jobs;
     	$scope.clients=false;
     		$scope.dashboard=false;
+         $scope.qanda=false;
+      $scope.addqanda=false;
+      $scope.email=false;
          $scope.users=false;
     	}
 
@@ -90,6 +102,9 @@ angular.module('mean.users')
       $scope.clients=false;
       $scope.jobs=false;
        $scope.users=false;
+        $scope.qanda=false;
+      $scope.addqanda=false;
+      $scope.email=false;
        $scope.dashboard=false;
        $scope.livechat=!$scope.livechat;
     }
@@ -98,9 +113,43 @@ angular.module('mean.users')
 
    		$scope.dashboard=!$scope.dashboard;
    		$scope.clients=false;
+       $scope.qanda=false;
+      $scope.addqanda=false;
+      $scope.email=false;
    		$scope.jobs=false;
        $scope.users=false;
    	}
+
+    $scope.activeqanda = function()
+    { $scope.qanda=!$scope.qanda;
+      $scope.clients=false;
+       $scope.dashboard=false;
+      $scope.addqanda=false;
+      $scope.email=false;
+      $scope.jobs=false;
+       $scope.users=false;
+
+    }
+    $scope.activeaddqanda = function()
+    { $scope.qanda=false;
+      $scope.clients=false;
+       $scope.dashboard=false;
+      $scope.addqanda=!$scope.addqanda;
+      $scope.email=false;
+      $scope.jobs=false;
+       $scope.users=false;
+
+    }
+    $scope.activeemail = function()
+    { $scope.qanda=false;
+      $scope.clients=false;
+       $scope.dashboard=false;
+      $scope.addqanda=false;
+      $scope.email=!$scope.email;
+      $scope.jobs=false;
+       $scope.users=false;
+
+    }
    
 
     }]);

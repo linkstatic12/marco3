@@ -1,0 +1,71 @@
+<div class="row">
+	<div class="col-lg-12">
+		<ol class="breadcrumb">
+			<li><a href="#">Home</a></li>
+			<li class="active"><span>Search</span></li>
+		</ol>
+		
+		<h1>Search</h1>
+	</div>
+</div>
+
+<div class="row" data-ng-controller="SearchController">
+	<div class="col-lg-12">
+		<div class="main-box clearfix">
+			<header class="main-box-header clearfix">
+				<h2>{{numberofresults}} results found for: <span class="emerald">&quot;{{query}}&quot;</span></h2>
+				<small class="gray">Request time ({{timetaken}})</small>
+			</header>
+			
+			<div class="main-box-body clearfix">
+				<div id="search-form">
+					
+						<div class="input-group">
+							<input type="text" name="search" data-ng-change="search()" value="movies 2014" class="form-control input-lg" data-ng-model="query"/>
+
+							<div class="input-group-btn">
+								<button class="btn btn-lg btn-primary" data-ng-click="search()">
+									<i class="fa fa-search"></i> Search
+								</button>
+							</div>
+						</div>
+					
+				</div>
+				
+				<ul id="search-results">
+					<li  data-ng-repeat="searchresult in searchresults" >
+						<h3 class="title">
+							<a href="#">
+								{{searchresult.Question}}
+								<span class="badge badge-info">{{searchresult.rating}}</span>
+							</a>
+						</h3>
+						<div class="clearfix">
+							<!-- <img src="/theme/assets/img/samples/hdr/xs/img_8.jpg" alt="" class="search-img hidden-xs" height="50"/> -->
+							<div class="meta-info">
+								<!-- <div class="link-title">
+									www.imdb.com/movies-2014
+								</div> -->
+								<div class="desc">
+									{{searchresult.Answer}}
+								</div>
+							</div>
+						</div>
+						<button data-ng-hide="rated" class="btn btn-lg btn-primary" data-ng-click="rateup(searchresult)">Rating</button>
+					</li>
+					
+				</ul>
+				
+				<ul class="pagination">
+					<li class="disabled"><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+					<li class="active"><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
